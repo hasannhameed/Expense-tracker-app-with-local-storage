@@ -1,0 +1,52 @@
+
+class Stack{
+    constructor(stack){
+        this.stack = stack
+    }
+
+    pushIntoStack(value){
+        this.stack.push(value);
+    }
+
+    popFromStack(){
+        if(this.stack.length==0){
+            return -1;
+        }else{
+           return this.stack.pop();
+        }
+        
+    }
+}
+
+// Do not change anything below this line
+
+function implementStack(arr){
+    
+    const stack1 = new Stack(arr)
+    stack1.pushIntoStack(1)
+     console.log(stack1.popFromStack())
+     console.log(stack1.popFromStack())
+     console.log(stack1.popFromStack())
+     stack1.pushIntoStack(1)
+     console.log(stack1.popFromStack())
+     console.log(stack1.popFromStack())
+}
+
+
+
+
+async function readInput() {
+    let inputString = '';
+    var output=[];
+    process.stdin.on('data', inputStdin => {
+        inputString += inputStdin;
+        const inputArr = inputString.split(/(?:\r\n|\r|\n)/g)
+        output = implementStack(inputArr[0].split(','));
+        console.log(output.trim());
+        process.exit();
+        
+    })
+    
+
+}
+readInput();
